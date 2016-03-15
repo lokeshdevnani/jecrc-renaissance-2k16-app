@@ -167,6 +167,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             title: 'Splash Events',
             templateUrl: 'assets/partials/partial-category-page.html',
             controller: function(renService, $scope, $state){
+                $scope.name = ['SPLASH','Fun \'n\' Frolic'];
                 $scope.category = 'splash';
                 $scope.types = ['indoor','outdoor'];
                 $scope.events = [];
@@ -185,6 +186,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             title: 'Endeavour Events',
             templateUrl: 'assets/partials/partial-category-page.html',
             controller: function(renService, $scope, $state){
+                $scope.name = ['ENDEAVOUR','Cultural Events'];
                 $scope.types = ['default'];
                 $scope.category = 'endeavour';
                 renService.async().then(function(d) {
@@ -201,7 +203,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             title: 'Quanta Events',
             templateUrl: 'assets/partials/partial-category-page.html',
             controller: function(renService, $scope, $state){
-
+                $scope.name = ['Quanta','Technical Events'];
                 $scope.types = ['CONSTRUCTO','CARRIAGE RETURN','ROBO FIESTA', 'VOCATIONAL'];
                 $scope.category = 'quanta';
                 renService.async().then(function(d) {
@@ -216,13 +218,19 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             parent: 'events',
             url: '/walk-through-paradise',
             title: 'Walk Through Paradise',
-            templateUrl: 'assets/partials/partial-walk-through-paradise.html'
+            templateUrl: 'assets/partials/partial-walk-through-paradise.html',
+            controller: function($scope){
+              $scope.name = ['WTP','Walk Through Paradise'];
+            }
         })
         .state('events.zarurat',{
             parent: 'events',
             url: '/zarurat',
             title: 'Zarurat: The Help Beyond',
-            templateUrl: 'assets/partials/partial-zarurat.html'
+            templateUrl: 'assets/partials/partial-zarurat.html',
+            controller: function($scope){
+              $scope.name = ['ZARURAT','Celebrating Innocence'];
+            }
         })
         .state('events.alumni',{
             parent: 'events',
@@ -230,6 +238,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             title: 'Alumni Events',
             templateUrl: 'assets/partials/partial-alumni.html',
             controller: function(renService, $scope,$state){
+                $scope.name = ['ALUMNI','Alumni Meet'];
                 $scope.category = 'alumni';
                 renService.async().then(function(d) {
                     $scope.events = d['alumni'];

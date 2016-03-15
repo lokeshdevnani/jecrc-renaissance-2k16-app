@@ -1407,7 +1407,7 @@ a.list-group-item img {
         margin-left: 10%;
     }
     .event-content {
-        top: 7%;
+        top: 3%;
     }
     .event-icon img {
         width: 70%;
@@ -1515,9 +1515,7 @@ a.list-group-item img {
         -webkit-transform: scale(0.8);
         transform: scale(0.8);
     }
-    .bar-full .inner-bar {
-        top: 35px;
-    }
+
     .login-content, .account-content {
         width: 90%;
         margin-left: 5%;

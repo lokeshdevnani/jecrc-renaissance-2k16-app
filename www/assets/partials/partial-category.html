@@ -59,7 +59,19 @@
 
 </main>
 </ion-view>
-<span ng-show="currentCategory!=0">
-  <ion-nav-view></ion-nav-view>
+
+<span ng-if="currentCategory!=0">
+  <span ng-if="currentCategory==1 || currentCategory==101"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==2 || currentCategory==102"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==3 || currentCategory==103"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==4 || currentCategory==104"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==5 || currentCategory==105"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==6 || currentCategory==106"><ion-nav-view></ion-nav-view></span> -->
 </span>
+<!-- <span ng-if="currentCategory==2"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==3"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==4"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==5"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==6"><ion-nav-view></ion-nav-view></span> -->
+
 <div ng-include="'assets/partials/partial-menu.html'"></div>
