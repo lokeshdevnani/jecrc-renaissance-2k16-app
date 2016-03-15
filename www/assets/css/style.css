@@ -1297,9 +1297,6 @@ a.list-group-item img {
 .member-container .svg-img:hover{
     opacity: 1;
 }
-.itinerary .event-content{
-    top: 5%;
-}
 .itinerary .event-content h3{
     font-weight: bold;
     font-size: 2em;
