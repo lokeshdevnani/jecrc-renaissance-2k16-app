@@ -605,12 +605,11 @@ body {
     -webkit-transform: translateY(-8%);
     transform: translateY(-8%);
 }
-.tab-content .row > div {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 .event-icon {
+   margin-top: 10px;
+   margin-bottom; 10px;
     cursor: pointer;
+    text-align: center;
 }
 .event-details {
     height: 100%;
@@ -653,6 +652,8 @@ body {
 }
 .event-details header h1 {
     color: #f63b29;
+    width: 100%;
+    padding-top: 1em;
     text-align: center;
     position: relative;
     display: inline-block;
@@ -787,7 +788,7 @@ a.list-group-item img {
     margin-bottom: 15px;
 }
 .nav-tabs>li>a {
-    padding: 5px 15px;
+    padding: 4px 10px;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.2em;
@@ -1765,4 +1766,8 @@ ion-view.screens{
 
 main.horizontal-bars{
   min-height: 100%;
+}
+
+.bar.bar-clear{
+  padding: 0;
 }

@@ -1,6 +1,6 @@
 var app = angular.module('renApp', ['ionic', 'LocalStorageModule']);
 
-app.run(function ($ionicPlatform) {
+app.run(function ($ionicPlatform, $rootScope) {
     $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -10,6 +10,26 @@ app.run(function ($ionicPlatform) {
             StatusBar.styleDefault();
         }
     });
+    $rootScope.$on('$stateChangeSuccess',
+        function (event, toState, toParams, fromState, fromParams) {
+
+            var sname = toState.name;
+
+            if(sname=='events'){ $rootScope.currentCategory = 0; }
+            else if(sname.indexOf('events.splash') > -1 ) $rootScope.currentCategory = 1;
+            else if(sname.indexOf('events.endeavour') > -1 ) $rootScope.currentCategory = 2;
+            else if(sname.indexOf('events.quanta') > -1 ) $rootScope.currentCategory = 3;
+            else if(sname.indexOf('events.walk-through-paradise') > -1 ) $rootScope.currentCategory = 4;
+            else if(sname.indexOf('events.zarurat') > -1 ) $rootScope.currentCategory = 5;
+            else if(sname.indexOf('events.alumni') > -1 ) $rootScope.currentCategory = 6;
+
+            if($rootScope.currentCategory>0 && $rootScope.currentCategory<=6) {
+              if (sname.split('.').length==3)  $rootScope.currentCategory+=100;
+            }
+
+            console.log($rootScope.currentCategory);
+        }
+    );
 });
 
 app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProvider) {
@@ -149,8 +169,10 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             controller: function(renService, $scope, $state){
                 $scope.category = 'splash';
                 $scope.types = ['indoor','outdoor'];
+                $scope.events = [];
                 renService.async().then(function(d) {
                     $scope.events = d['splash'];
+                    console.log($scope.events);
                 });
                 $scope.openDetails = function(eventTitle){
                     $state.go('events.'+ $scope.category +'.eventId',{id: eventTitle});
@@ -178,7 +200,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             url: '/quanta',
             title: 'Quanta Events',
             templateUrl: 'assets/partials/partial-category-page.html',
-            controller: function(renService, $scope, $state, Page){
+            controller: function(renService, $scope, $state){
 
                 $scope.types = ['CONSTRUCTO','CARRIAGE RETURN','ROBO FIESTA', 'VOCATIONAL'];
                 $scope.category = 'quanta';
@@ -217,6 +239,71 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
                 }
             }
         })
+        .state('events.splash.eventId',{
+            url: '/:id',
+            templateUrl : 'assets/partials/partial-event.html',
+            controller: function($scope, $stateParams, $state, renService) {
+                renService.async().then(function(d) {
+                    $scope.details = d['splash'][$scope.id];
+                });
+                $scope.closeDetails = function () {
+                    $state.go('events.splash');
+                };
+                $scope.id = $stateParams.id;
+                if (sessionStorage.token) {
+                    $scope.loggedIn = 1;
+                }
+            }
+        })
+        .state('events.endeavour.eventId',{
+            url: '/:id',
+            templateUrl : 'assets/partials/partial-event.html',
+            controller: function($scope, $stateParams, $state, renService) {
+                renService.async().then(function(d) {
+                    $scope.details = d['endeavour'][$scope.id];
+                });
+                $scope.closeDetails = function () {
+                    $state.go('events.endeavour');
+                };
+                $scope.id = $stateParams.id;
+                if (sessionStorage.token) {
+                    $scope.loggedIn = 1;
+                }
+            }
+        })
+        .state('events.quanta.eventId',{
+            url: '/:id',
+            templateUrl : 'assets/partials/partial-event.html',
+            controller: function($scope, $stateParams, $state, renService) {
+                renService.async().then(function(d) {
+                    $scope.details = d['quanta'][$scope.id];
+                });
+                $scope.closeDetails = function () {
+                    $state.go('events.quanta');
+                };
+                $scope.id = $stateParams.id;
+                if (sessionStorage.token) {
+                    $scope.loggedIn = 1;
+                }
+            }
+        })
+        .state('events.alumni.eventId',{
+            url: '/:id',
+            templateUrl : 'assets/partials/partial-event.html',
+            controller: function($scope, $stateParams, $state, renService ) {
+                renService.async().then(function(d) {
+                    $scope.details = d['alumni'][$scope.id];
+                });
+                $scope.closeDetails = function () {
+                    $state.go('events.alumni');
+                };
+                $scope.id = $stateParams.id;
+                if (sessionStorage.token) {
+                    $scope.loggedIn = 1;
+                }
+            }
+        })
+
 
         ;
     $urlRouterProvider.otherwise('/welcome');
@@ -228,6 +315,7 @@ app.factory('renService', function($http) {
     var urlBase = 'http://jecrcrenaissance.in/api/';
     var url = urlBase+"events";
     url = urlBase+'events-get';
+    url = 'events.json';
     var promise;
     var myService = {
         async: function() {
@@ -258,4 +346,19 @@ app.factory('renService', function($http) {
 
 app.controller('main', function ($scope, $ionicModal, localStorageService) {
 
+});
+app.filter('type', function () {
+    return function (items, type) {
+        var filtered = {};
+        angular.forEach(items,function(v,k){
+            if(v.type==type)
+            filtered[k] = v;
+        })
+        return filtered;
+    };
+}).filter('renderHTMLCorrectly', function($sce) {
+    return function(stringToParse)
+    {
+        return $sce.trustAsHtml(stringToParse);
+    }
 });
