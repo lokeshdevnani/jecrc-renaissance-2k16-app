@@ -1,7 +1,7 @@
 {
-  "name": "ionic-todo",
+  "name": "Renaissance 16",
   "version": "1.1.1",
-  "description": "ionic-todo: Mobile App with AngularJS and Ionic",
+  "description": "JECRC Renaissance 2016 : National Level Techno-Cultural Fest",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
