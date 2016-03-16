@@ -200,7 +200,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             title: 'Quanta Events',
             templateUrl: 'assets/partials/partial-category-page.html',
             controller: function(renService, $scope, $state){
-                $scope.name = ['Quanta','Technical Events'];
+                $scope.name = ['QUANTA','Technical Events'];
                 $scope.types = ['CONSTRUCTO','CARRIAGE RETURN','ROBO FIESTA', 'VOCATIONAL'];
                 $scope.category = 'quanta';
                 renService.async().then(function(d) {
