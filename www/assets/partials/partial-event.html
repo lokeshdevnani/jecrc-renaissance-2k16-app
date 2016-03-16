@@ -78,8 +78,10 @@
                 </div>
                 <div ng-if="!loggedIn">
                     <article>
-                        <p>To participate in an event, you need to login first.</p>
-                        <div class='register-btn' onclick="showLoginModal()">Login or Register</div>
+                        <!-- <p>To participate in an event, you need to login first.</p>
+                        <div class='register-btn' onclick="showLoginModal()">Login or Register</div> -->
+                        <p>To participate, click the following link</p>
+                        <a href="http://jecrcrenaissance.in/events/{{category}}/{{details.title}}">Register</a>
                     </article>
                 </div>
             </div>
