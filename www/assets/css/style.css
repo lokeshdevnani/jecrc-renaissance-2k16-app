@@ -1,6 +1,29 @@
 *, *::after, *::before {
     box-sizing: border-box;
 }
+
+@font-face {
+  font-family: 'Satisfy';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/Satisfy-Regular.ttf);
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 300;
+  src: url(../fonts/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 700;
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
 html {
     padding: 0;
     margin: 0;
