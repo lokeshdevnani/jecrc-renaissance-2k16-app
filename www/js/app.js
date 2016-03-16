@@ -1,6 +1,6 @@
 var app = angular.module('renApp', ['ionic', 'LocalStorageModule']);
 
-app.run(function ($ionicPlatform, $rootScope) {
+app.run(function ($ionicPlatform, $rootScope, $ionicHistory) {
     $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -27,7 +27,8 @@ app.run(function ($ionicPlatform, $rootScope) {
               if (sname.split('.').length==3)  $rootScope.currentCategory+=100;
             }
 
-            console.log($rootScope.currentCategory);
+            console.log($ionicHistory.viewHistory().histories.root);
+            
         }
     );
 });
@@ -40,7 +41,10 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             url: '/welcome',
             title: 'National Level Techno-Cultural Fest',
             templateUrl: 'assets/partials/partial-home.html',
-            controller: function(){
+            controller: function($state, $scope){
+              $scope.goto = function(sref){
+                $state.go(sref);
+              }
 
             }
             // controller: function(renService,$scope, Page){
