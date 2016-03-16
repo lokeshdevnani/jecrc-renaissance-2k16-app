@@ -27,8 +27,6 @@ app.run(function ($ionicPlatform, $rootScope, $ionicHistory) {
               if (sname.split('.').length==3)  $rootScope.currentCategory+=100;
             }
 
-            console.log($ionicHistory.viewHistory().histories.root);
-            
         }
     );
 });
@@ -323,6 +321,7 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
 
 app.factory('renService', function($http) {
     var urlBase = 'http://jecrcrenaissance.in/api/';
+    urlBase = 'http://localhost/jecrcr/api/';
     var url = urlBase+"events";
     url = urlBase+'events-get';
     url = 'events.json';
