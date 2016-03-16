@@ -108,13 +108,10 @@ app.config(function ($stateProvider, $urlRouterProvider ,localStorageServiceProv
             title: 'Gallery',
             templateUrl: 'assets/partials/partial-gallery.html',
             controller: function($scope, $state){
-                $scope.$on('$viewContentLoaded', function() {
-                    var images = [];
-                    for(i=1;i<=28;i++)
-                        images.push(i+".jpg");
-
-                    $scope.images = images;
-                });
+              var images = [];
+              for(i=1;i<=28;i++)
+                  images.push(i+".jpg");
+              $scope.images = images;
             }
         })
         .state('sponsors', {
@@ -370,4 +367,12 @@ app.filter('type', function () {
     {
         return $sce.trustAsHtml(stringToParse);
     }
+});
+
+app.directive('myPostRepeatDirective', function() {
+    return function(scope, element, attrs) {
+        if (scope.$last){
+            $('.gallery a').simpleLightbox();
+        }
+    };
 });
