@@ -1,0 +1,35 @@
+<ion-view class="screens">
+        <ion-header-bar class="hidden bar-clear">
+          <div class="navigation">
+              <div class="menu-icon" class="animate-1" ui-sref="explore"><div class="menu-bars"></div></div>
+              <div class="clearfix"></div>
+          </div>
+      </ion-header-bar>
+        <ion-content>
+          <div class="bar-full">
+              <div class="inner-bar">
+                <h2>{{name[0]}}</h2>
+                <h3>{{name[1]}}</h3>
+              </div>
+          </div>
+        <div class='event-content'>
+            <div class="main-tabs">
+              <div class="tab-content">
+                  <p>
+                      WALK THROUGH PARADISE is a boulevard showcasing incredible india at one place offering
+                      the amazing cultural diversity. The canvas of India is vast and has hues and vibrancy
+                      of all sorts.
+                      This event is a road trip through Indian States depicting their colourful culture
+                      and beauty.We will start the road trip from Rajasthan, moving towards south followed
+                      by eastern and finally northern states.The event includes the cultural performances by
+                      professional artists and an opportunity for college students to showcase their talent.
+                      So pull up your socks and get ready for experiencing the Indian essence.
+                  </p>
+              </div>
+            </div>
+        </div>
+      </ion-content>
+</ion-view>
+<div ng-if="currentCategory > 100 ">
+  <ion-nav-view></ion-nav-view>
+</div>

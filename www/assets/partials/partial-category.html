@@ -1,0 +1,77 @@
+<div ng-include="'assets/partials/partial-login.html'"></div>
+<div ng-include="'assets/partials/partial-account.html'"></div>
+<ion-view>
+<main class='horizontal-bars' style="height:100%;">
+    <div class='v-bar col-md-2 col-xs-6' ui-sref="events.splash">
+      <div class='inner-bar'>
+          <img class='category-img' src="assets/img/logo/categories/splash.png" />
+          <div>
+              <h2>SPLASH</h2>
+              <h3>Fun 'n' Frolic</h3>
+          </div>
+      </div>
+    </div>
+    <div class='v-bar col-md-2 col-xs-6' ui-sref="events.endeavour">
+        <div class='inner-bar'>
+          <img class='category-img' src="assets/img/logo/categories/endeavour.png" />
+          <div>
+              <h2>ENDEAVOUR</h2>
+              <h3>Cultural Events</h3>
+          </div>
+        </div>
+    </div>
+    <div class='v-bar col-md-2 col-xs-6' ui-sref="events.quanta">
+        <div class='inner-bar'>
+          <img class='category-img' src="assets/img/logo/categories/quanta.png" />
+          <div>
+              <h2>QUANTA</h2>
+              <h3>Technical Events</h3>
+          </div>
+        </div>
+    </div>
+    <div class='v-bar col-md-2 col-xs-6' ui-sref="events.walk-through-paradise">
+        <div class='inner-bar'>
+          <img class='category-img' src="assets/img/logo/categories/tas.png" />
+          <div>
+              <h2>WTP</h2>
+              <h3>Walk Through Paradise</h3>
+          </div>
+        </div>
+    </div>
+    <div class='v-bar col-md-2 col-xs-6' ui-sref="events.zarurat">
+        <div class='inner-bar'>
+            <img class='category-img' src="assets/img/logo/categories/zarurat.png" />
+            <div>
+                <h2>ZARURAT</h2>
+                <h3>Celebrating Innocence</h3>
+            </div>
+        </div>
+    </div>
+    <div class='v-bar col-md-2 col-xs-6' ui-sref="events.alumni">
+        <div class='inner-bar'>
+          <img class='category-img' src="assets/img/logo/categories/alumni.png" />
+          <div>
+              <h2>ALUMNI</h2>
+              <h3>Alumni Meet</h3>
+          </div>
+        </div>
+    </div>
+
+</main>
+</ion-view>
+
+<span ng-if="currentCategory!=0">
+  <span ng-if="currentCategory==1 || currentCategory==101"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==2 || currentCategory==102"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==3 || currentCategory==103"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==4 || currentCategory==104"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==5 || currentCategory==105"><ion-nav-view></ion-nav-view></span>
+  <span ng-if="currentCategory==6 || currentCategory==106"><ion-nav-view></ion-nav-view></span> -->
+</span>
+<!-- <span ng-if="currentCategory==2"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==3"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==4"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==5"><ion-nav-view></ion-nav-view></span>
+<span ng-if="currentCategory==6"><ion-nav-view></ion-nav-view></span> -->
+
+<div ng-include="'assets/partials/partial-menu.html'"></div>
