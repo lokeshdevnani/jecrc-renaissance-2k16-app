@@ -7,3 +7,4 @@ plugins/
 .idea/
 .editorconfig
 www/lib/
+my-release-key.keystore
